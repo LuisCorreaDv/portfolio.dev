@@ -7,6 +7,7 @@ import GitHub from "../icons/GitHub.astro";
 import Mail from "../icons/Mail.astro";
 import Experience from "../components/Experience.astro";
 import Briefcase from "../icons/Briefcase.astro";
+import SectionContainer from "../components/SectionContainer.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -15,7 +16,7 @@ import Briefcase from "../icons/Briefcase.astro";
 <Layout>
   <main class="md:w-[768px] px-4">
     <!-- Header -->
-    <section class="w-full mx-auto lg:w-[740px] py-44 pb-20">
+    <SectionContainer class="py-44 pb-24">
       <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
         Hey, soy Luis <a
           href="https://www.linkedin.com/in/luiscorrea-v/"
@@ -47,15 +48,15 @@ import Briefcase from "../icons/Briefcase.astro";
           Correo
         </SocialPill>
       </nav>
-    </section>
+    </SectionContainer>
 
     <!-- Section de experiencia laboral -->
-    <section id="experiencia">
+    <SectionContainer id="experiencia">
       <h2 class="text-4xl font-semibold mb-6 flex gap-x-3 items-center">
         <Briefcase class="size-7" />
         Experiencia laboral
       </h2>
       <Experience />
-    </section>
+    </SectionContainer>
   </main>
 </Layout>
