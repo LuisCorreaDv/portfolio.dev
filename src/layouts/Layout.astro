@@ -3,6 +3,7 @@
  import Header from '../components/Header.astro'
  // Supports weights 100-900
 import '@fontsource-variable/onest';
+import Footer from '../components/Footer.astro';
 ---  
 
 <!doctype html>
@@ -15,9 +16,10 @@ import '@fontsource-variable/onest';
 		<title>Portfolio - Luis Correa</title>
 	</head>
 	<body class="relative">
+		<div class="fixed inset-0 z-[-2] bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
 		<Header />
 		<slot />
-		<div class="fixed inset-0 z-[-2] bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+		<Footer />
 	</body>
 </html>
 
