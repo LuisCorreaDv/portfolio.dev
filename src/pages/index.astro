@@ -13,12 +13,12 @@ import Projects from "../components/Projects.astro";
 ---
 
 <Layout>
-  <main class="md:w-[768px] lg:px-4 md:px-6">
+  <main class="w-full max-w-[768px] px-4 mx-auto">
     <!-- Header -->
     <SectionContainer class="py-28 pb-24">
       <div class="flex flex-row items-center gap-4">
         <img
-          class="rounded-full size-12 sm:display-block mb-4 md:mb-0"
+          class="rounded-full size-14 sm:display-block mb-4 md:mb-0"
           src="https://gravatar.com/avatar/ef7dcea8fa46a2bc6fed720691529b9c?s=400&d=retro&r=x"
           alt="profile logo"
         />
@@ -63,7 +63,7 @@ import Projects from "../components/Projects.astro";
     </SectionContainer>
 
     <!-- Section de Proyectos -->
-    <SectionContainer id="proyectos">
+    <SectionContainer id="proyectos" class="pb-24">
       <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
         <Code class="size-7" />
         Proyectos

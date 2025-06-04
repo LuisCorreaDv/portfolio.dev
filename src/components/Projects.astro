@@ -1,48 +1,65 @@
 ---
-import HTML from "../icons/HTML.astro"
-import CSS from "../icons/CSS.astro"
+import HTML from "../icons/HTML.astro";
+import CSS from "../icons/CSS.astro";
 
 const TAGS = {
-    HTML: {
-        name: "HTML5",
-        class: "bg-orange-400/80 text-white",
-        icon: HTML,
-    },
-    CSS: {
-        name: "CSS3",
-        class: "bg-blue-400/80 text-white",
-        icon: CSS,
-    },
-
-}
+  HTML: {
+    name: "HTML5",
+    class: "bg-orange-400/80 text-white",
+    icon: HTML,
+  },
+  CSS: {
+    name: "CSS3",
+    class: "bg-blue-400/80 text-white",
+    icon: CSS,
+  },
+};
 
 const projects = [
-    {
-        title: "Blog Preview Card",
-        description: "Blog preview card challenge",
-        link: "https://blog-preview-card-challenge-black.vercel.app/",
-        image: "/Images/BlogPreview.webp",
-        github: "https://github.com/LuisCorreaDv/Blog-preview-card-challenge",
-        tags: [TAGS.HTML, TAGS.CSS],
-    },
-]
+  {
+    title: "Blog Preview Card",
+    description:
+      "Componente de tarjeta de vista previa de blog, implementado con un diseño responsive y animaciones sutiles. Reto de Frontend Mentor que pone a prueba las habilidades de maquetación y diseño.",
+    link: "https://blog-preview-card-challenge-black.vercel.app/",
+    image: "/Images/BlogPreview.webp",
+    github: "https://github.com/LuisCorreaDv/Blog-preview-card-challenge",
+    tags: [TAGS.HTML, TAGS.CSS],
+  },
+];
 ---
 
 {
-    projects.map(({title, description, link, image, github, tags}) => {
-        return (<article>
-            <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
-            <p class="text-lg mb-4 text-pretty">{description}</p>
-            <ul class="flex gap-x-2 flex-row mb-2">
-                {tags.map(tag => (
-                    <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
-                        <tag.icon class="size-4" />
-                        <li>{tag.name}</li>
-                    </span>
-                ))}
-            </ul>
-            <img class="rounded shadow-2xl shadow-white/10" src={image} alt="Captura de pantalla del proyecto" />
-        </article>
-        )
-    })
+  projects.map(({ title, description, link, image, github, tags }) => {
+    return (
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex flex-col w-full bg-white border border-gray-200 rounded-lg shadow-md md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+      >
+        <img
+          class="object-cover w-full rounded-t-lg h-56 md:h-64 md:w-72 md:rounded-none md:rounded-s-lg"
+          src={image}
+          alt={`Captura de pantalla del proyecto ${title}`}
+        />
+        <div class="flex flex-col flex-grow p-4">          <div>
+            <h3 class="text-xl font-bold tracking-tight text-[#3e4979] mb-2 text-balance">
+              {title}
+            </h3>
+            <p class="text-base text-[#332E3C] text-pretty leading-relaxed mb-4">
+              {description}
+            </p>
+          </div>
+          <ul class="flex gap-2 flex-wrap">
+              {tags.map((tag) => (
+              <span class="flex items-center gap-x-2 rounded-full text-xs bg-[#37437c]/10 text-[#37437c] py-1 px-3 font-medium">
+                <tag.icon class="size-4" />
+                <li>{tag.name}</li>
+              </span>
+            ))}
+          </ul>
+        </div>
+      </a>
+    );
+  })
 }
