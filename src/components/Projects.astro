@@ -1,60 +1,101 @@
 ---
+import Code from "../icons/Code.astro";
+import GitHub from "../icons/GitHub.astro";
+
 const projects = [
-  {
-    title: "Blog Preview Card",
-    description:
-      "Componente de tarjeta de vista previa desarrollado como parte del programa de Frontend Mentor, siguiendo un modelo de Figma para practicar maquetación y precisión visual.",
-    link: "https://blog-preview-card-challenge-black.vercel.app/",
-    image: "/Images/BlogPreview.webp",
-    github: "https://github.com/LuisCorreaDv/Blog-preview-card-challenge",
-    tags: ["HTML", "CSS", "Figma"],
-  },
   {
     title: "Task Flow",
     description:
       " Aplicación web para la gestión de tareas, desarrollada con React, TypeScript, Tailwind CSS y Redux. Permite a los usuarios crear, editar y eliminar tareas, así como organizarlas en diferentes categorías.",
     link: "",
-    image: "/Images/TaskFlow.webp",
+    image: "/Images/TaskFlow_.webp",
     github: "https://github.com/LuisCorreaDv/task-flow",
     tags: ["React", "TypeScript", "Tailwind CSS", "Redux"],
   },
+  {
+    title: "Programa ONE - Oracle Next Education",
+    description:
+      "Proyectos de desarrollo web realizado durante el programa ONE de Oracle, donde se aplicaron tecnologías como HTML, CSS y JavaScript para crear aplicaciones web interactivas y funcionales.",
+    link: "",
+    image: "/Images/Alura.webp",
+    github: "#",
+    tags: ["HTML", "CSS", "JavaScript", "Figma"],
+  },
+  {
+    title: "Retos - Frontend Mentor",
+    description:
+      "Desafíos de desarrollo web basados en diseños reales, que van desde tecnologías básicas hasta el uso de frameworks como React. Ideales para practicar y mejorar habilidades frontend",
+    link: "https://blog-preview-card-challenge-black.vercel.app/",
+    image: "/Images/BlogPreview.webp",
+    github: "https://github.com/LuisCorreaDv/Blog-preview-card-challenge",
+    tags: ["Figma", "JavaScript", "React", "Tailwind CSS", "Astro"],
+  },
+  
 ];
 ---
 
 {
   projects.map(({ title, description, link, image, github, tags }) => {
     return (
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex flex-col w-full bg-white rounded-lg shadow-md md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-      >
+      <div class="flex flex-col w-full bg-gradient-to-br from-white/50 to-white/30 backdrop-blur-md rounded-lg shadow-md md:flex-row dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
         <img
-          class="object-cover w-full rounded-t-lg h-56 md:h-64 md:w-72 md:rounded-none md:rounded-s-lg"
+          class="object-cover w-full rounded-t-lg md:h-64 md:w-72 md:rounded-none md:rounded-s-lg"
           src={image}
           alt={`Captura de pantalla del proyecto ${title}`}
         />
-        <div class="flex flex-col flex-grow p-4">
-          {" "}
+        <div class="flex flex-col flex-grow p-3">
           <div>
-            {" "}
-            <h3 class="text-xl font-bold tracking-tight text-[#2c4f82] mb-2 text-balance">
+            <h3 class="text-xl font-bold tracking-tight text-[#2c4f82] mb-1 text-balance">
               {title}
             </h3>
-            <p class="text-base text-[#2d3748] text-pretty leading-relaxed mb-4">
+            <p class="text-base text-[#2d3748] text-pretty leading-relaxed mb-2">
               {description}
-            </p>
-          </div>{" "}
-          <ul class="flex gap-1.5 flex-wrap">
+            </p>{" "}
+          </div>
+          <ul class="flex gap-1.5 flex-wrap mb-1">
             {tags.map((tag) => (
-              <li class="flex items-center rounded-md text-xs bg-blue-100/50 text-blue-800 py-1 px-2 font-medium">
+              <li class="flex items-center rounded-md text-xs bg-blue-300/30 text-blue-800 py-1 px-2 font-medium">
                 {tag}
               </li>
             ))}
           </ul>
+          <section class="flex gap-4 mt-2">
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center px-3 py-1.5 text-sm font-medium bg-[#2c4f82]/25 text-[#2c4f82] rounded-lg hover:bg-[#2c4f82]/10 transition-all duration-300"
+            >
+              <GitHub class="size-4 mr-1.5"/>
+              Código
+            </a>
+            {link && (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center px-3 py-1.5 text-sm font-medium bg-[#2c4f82]/25 text-[#2c4f82] rounded-lg hover:bg-[#2c4f82]/10 transition-all duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+                Preview
+              </a>
+            )}
+          </section>
         </div>
-      </a>
+      </div>
     );
   })
 }
