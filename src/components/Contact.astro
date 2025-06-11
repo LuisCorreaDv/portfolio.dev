@@ -1,0 +1,64 @@
+---
+import Copy from "../icons/Copy.astro";
+import Check from "../icons/Check.astro";
+import Mail from "../icons/Mail.astro";
+const EMAIL = "dev.luis.correa@gmail.com"; // Reemplaza con tu correo
+---
+
+<h2 class="text-3xl md:text-4xl font-bold text-center text-[#1a365d] mb-8">
+  ¿Tienes algún proyecto en mente?
+</h2>
+<div class="max-w-2xl mx-auto text-center">
+  <p class="text-lg md:text-xl text-[#2d3748] mb-8">
+    Siempre estoy en búsqueda de nuevos proyectos y experiencias. Si tienes una
+    idea innovadora o buscas crear algo único,<br> ¡Me encantaría colaborar y hacerlo
+    realidad!
+  </p>
+  <div class="flex flex-col items-center justify-center gap-4">
+    <div class="w-full max-w-[20rem]">
+      <div class="relative group">
+        <label for="email-copy-button" class="sr-only">Correo electrónico</label>
+        <input
+          id="email-copy-button"
+          type="text"
+          class="w-full bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-[#2c4f82] focus:border-[#2c4f82] block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400"
+          value={EMAIL}
+          disabled
+          readonly
+        />
+        <button
+          class="copy-button absolute end-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center"
+          aria-label="Copiar correo"
+          data-email={EMAIL}
+        >
+          <span class="default-icon">
+            <Copy class="size-4" />
+          </span>
+          <span class="success-icon hidden">
+            <Check class="size-4 text-[#2c4f82]" />
+          </span>
+        </button>
+        <div
+          class="copy-tooltip absolute z-10 invisible px-3 py-2 text-sm font-medium text-white transition-all duration-300 bg-[#2c4f82] rounded-lg shadow-sm opacity-0 top-1/2 -translate-y-1/2 left-[calc(100%+0.5rem)] group-hover:visible group-hover:opacity-100"
+        >
+          <span class="default-message whitespace-nowrap">Copiar</span>
+          <span class="success-message hidden whitespace-nowrap">¡Copiado!</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <a
+      href={`mailto:${EMAIL}`}
+      class="inline-flex items-center gap-2 px-6 py-3 text-white font-medium bg-[#2c4f82] rounded-full hover:bg-[#1a365d] transition-colors"
+    >
+      Enviar correo
+      <Mail class="size-4" />
+    </a>
+  </div>
+</div>
+
+<script>
+  import { initCopyToClipboard } from "../utils/copyToClipboard.js";
+  initCopyToClipboard();
+</script>
